@@ -1,11 +1,21 @@
 package com.poyan.volly.stat.vollystat;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
+
 @Controller
 public class MainController {
+
+    private MainRepository mainRepository;
+
+    @Autowired
+    public MainController(MainRepository mainRepository) {
+        this.mainRepository = mainRepository;
+    }
 
     @RequestMapping("/")
     public String start() {
@@ -14,19 +24,7 @@ public class MainController {
 
     @RequestMapping("/getPlayers")
     @ResponseBody
-    public String getPlayers() {
-        return "  [{\n" +
-                "    \"id\": \"1\",\n" +
-                "    \"name\": \"Poyan\"\n" +
-                "  },\n" +
-                "  {\n" +
-                "    \"id\": \"2\",\n" +
-                "    \"name\": \"Peyman\"\n" +
-                "  },\n" +
-                "  {\n" +
-                "    \"id\": \"3\",\n" +
-                "    \"name\": \"Mohsen\"\n" +
-                "  }\n" +
-                "]";
+    public List<Player> getPlayers() {
+        return mainRepository.getAllPlayers();
     }
 }
