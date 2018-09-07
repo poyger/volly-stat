@@ -17,7 +17,7 @@ populateDropbox($('#players-team2-dropdown'));
 
 function saveAndShowSelectedTeam(dropdown, teamArray, displayElement) {
     return function () {
-        var val = $(dropdown  + " option:selected").text();
+        var val = $(dropdown + " option:selected").text();
         teamArray.push(val);
         $(displayElement).html(teamArray.toString());
     };
