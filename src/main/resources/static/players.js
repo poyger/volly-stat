@@ -14,14 +14,21 @@ function populateDropbox(dropdown) {
 populateDropbox($('#players-team1-dropdown'));
 populateDropbox($('#players-team2-dropdown'));
 
-var team1 = new Array();
-function addPlayerTeam1() {
-    team1.push($("#players-team1-dropdown").find(":selected").text());
-    $("#team1").html(team1.toString());
-}
 
 var team2 = new Array();
-function addPlayerTeam2() {
-    team2.push($("#players-team2-dropdown").find(":selected").text());
-    $("#team2").html(team2.toString());
-}
+$("#players-team2-dropdown").change(
+    function() {
+        var val = $("#players-team2-dropdown option:selected").text();
+        team2.push(val);
+        $("#team2").html(team2.toString());
+    }
+);
+
+var team1 = new Array();
+$("#players-team1-dropdown").change(
+    function() {
+        var val1 = $("#players-team1-dropdown option:selected").text();
+        team1.push(val1);
+        $("#team1").html(team1.toString());
+    }
+);

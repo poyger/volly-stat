@@ -17,11 +17,11 @@
         <tbody>
         <tr>
             <td>
-                <select class="dropdown-header" name="players" id="players-team1-dropdown"></select><button class="btn-primary" onclick="addPlayerTeam1()">Add player team1</button>
+                <select class="dropdown-header" name="players" id="players-team1-dropdown"></select>
                 <div id = "team1"/>
             </td>
             <td>
-                <select class="dropdown-header" name="players" id="players-team2-dropdown"></select><button class="btn-primary" onclick="addPlayerTeam2()">Add player team2</button>
+                <select class="dropdown-header" name="players" id="players-team2-dropdown"></select>
                 <div id = "team2"/>
             </td>
             <td>No</td>
