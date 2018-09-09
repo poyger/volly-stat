@@ -19,7 +19,7 @@ function saveAndShowSelectedTeam(dropdown, teamArray, displayElement) {
     return function () {
         var val = $(dropdown + " option:selected").text();
         teamArray.push(val);
-        $(displayElement).html(teamArray.toString());
+        $(displayElement).html(teamArray.join('</br>'));
     };
 }
 
