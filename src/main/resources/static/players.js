@@ -1,5 +1,4 @@
 function populateDropbox(dropdown) {
-    //let dropdown = $('#players-team1-dropdown');
     dropdown.empty();
     dropdown.append('<option selected="true" disabled>Choose Player</option>');
     dropdown.prop('selectedIndex', 0);
