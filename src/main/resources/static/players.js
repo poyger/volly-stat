@@ -32,3 +32,15 @@ var team2 = new Array();
 $("#players-team2-dropdown").change(
     saveAndShowSelectedTeam("#players-team2-dropdown", team2, "#team2")
 );
+
+
+var team1Result;
+$("#result-team1-dropdown").change(function() {
+    team1Result = $("#result-team1-dropdown option:selected").text()
+});
+
+
+var team2Result;
+$("#result-team2-dropdown").change(function() {
+    team2Result = $("#result-team2-dropdown option:selected").text()
+});

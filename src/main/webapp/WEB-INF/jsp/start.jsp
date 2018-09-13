@@ -11,20 +11,34 @@
         <tr>
             <th>Team1</th>
             <th>Team2</th>
-            <th>Result</th>
+            <th>Set Team1</th>
+            <th>Set Team2</th>
         </tr>
         </thead>
         <tbody>
         <tr>
             <td>
-                <select class="dropdown-header" name="players" id="players-team1-dropdown"></select>
+                <select class="dropdown-header" id="players-team1-dropdown"></select>
                 <div id = "team1"/>
             </td>
             <td>
-                <select class="dropdown-header" name="players" id="players-team2-dropdown"></select>
+                <select class="dropdown-header" id="players-team2-dropdown"></select>
                 <div id = "team2"/>
             </td>
-            <td>No</td>
+            <td>
+                <select class="dropdown-header" id="result-team1-dropdown">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </td>
+            <td>
+                <select class="dropdown-header" id="result-team2-dropdown">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </td>
         </tr>
         </tbody>
     </table>
