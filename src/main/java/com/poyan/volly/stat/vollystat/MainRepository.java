@@ -1,5 +1,6 @@
 package com.poyan.volly.stat.vollystat;
 
+import com.poyan.volly.stat.vollystat.model.Player;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -22,6 +23,15 @@ public class MainRepository {
         String sql = "SELECT * FROM players";
         return jdbcTemplate.query(sql, new PlayerMapper());
     }
+
+    public void createGame() {
+
+    }
+
+
+
+
+
 
     private static class PlayerMapper implements RowMapper<Player> {
         @Override

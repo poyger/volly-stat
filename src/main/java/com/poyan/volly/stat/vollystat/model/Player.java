@@ -1,4 +1,4 @@
-package com.poyan.volly.stat.vollystat;
+package com.poyan.volly.stat.vollystat.model;
 
 public class Player {
     private int id;
