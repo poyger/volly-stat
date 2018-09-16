@@ -23,11 +23,13 @@ public class MainController {
 
     @RequestMapping("/getPlayers")
     @ResponseBody
+    @SuppressWarnings("unused")
     public List<Player> getPlayers() {
         return mainRepository.getAllPlayers();
     }
 
     @RequestMapping(value = "/submitGameResult", method = RequestMethod.POST)
+    @SuppressWarnings("unused")
     public String submitGameResult(@RequestBody GameResult gameResult) {
         mainRepository.sumbitResult(gameResult);
         return "redirect:results.html";
