@@ -30,6 +30,6 @@ public class MainController {
     @RequestMapping(value = "/submitGameResult", method = RequestMethod.POST)
     public String submitGameResult(@RequestBody GameResult gameResult) {
         mainRepository.sumbitResult(gameResult);
-        return "start";
+        return "redirect:results.html";
     }
 }
