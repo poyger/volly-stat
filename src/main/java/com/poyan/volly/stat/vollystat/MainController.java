@@ -21,10 +21,12 @@ public class MainController {
         this.mainRepository = mainRepository;
     }
 
+/*
     @RequestMapping("/")
     public String start() {
         return "start";
     }
+*/
 
     @RequestMapping("/getPlayers")
     @ResponseBody
