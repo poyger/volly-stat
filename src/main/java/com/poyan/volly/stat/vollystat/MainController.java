@@ -21,13 +21,6 @@ public class MainController {
         this.mainRepository = mainRepository;
     }
 
-/*
-    @RequestMapping("/")
-    public String start() {
-        return "start";
-    }
-*/
-
     @RequestMapping("/getPlayers")
     @ResponseBody
     public List<Player> getPlayers() {
@@ -36,7 +29,7 @@ public class MainController {
 
     @RequestMapping(value = "/submitGameResult", method = RequestMethod.POST)
     public String submitGameResult(@RequestBody GameResult gameResult) {
-        System.out.println(gameResult);
+        mainRepository.sumbitResult(gameResult);
         return "start";
     }
 }

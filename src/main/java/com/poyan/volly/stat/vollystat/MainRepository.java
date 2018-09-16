@@ -32,13 +32,12 @@ public class MainRepository {
 
     public void sumbitResult(GameResult gameResult) {
         long gameId = createGame(gameResult.getGame());
-
     }
 
     private long createGame(Game game) {
         Map<String, Date> insertElements = new HashMap<>();
         insertElements.put("date", game.getDate());
-        SimpleJdbcInsert insert = new SimpleJdbcInsert(jdbcTemplate).withTableName("game").usingColumns("id");
+        SimpleJdbcInsert insert = new SimpleJdbcInsert(jdbcTemplate).withTableName("game").usingGeneratedKeyColumns("id");
         return insert.executeAndReturnKey(insertElements).longValue();
     }
 
