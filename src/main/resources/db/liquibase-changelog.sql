@@ -15,22 +15,28 @@ CREATE TABLE game (
 --changeset vollystat:4
 CREATE TABLE team (
   id SERIAL PRIMARY KEY,
-  game_id INTEGER REFERENCES game(id) ON DELETE CASCADE,
-  team_name CHAR,
-  player_id INTEGER REFERENCES players(id)
+  team_name VARCHAR
 );
 
 --changeset vollystat:5
+CREATE TABLE player_team_game (
+  id SERIAL PRIMARY KEY,
+  player_id INTEGER REFERENCES players(id),
+  team_id INTEGER REFERENCES team(id) ON DELETE CASCADE,
+  game_id INTEGER REFERENCES game(id) ON DELETE CASCADE
+);
+
+--changeset vollystat:6
 CREATE TABLE game_result (
   game_id INTEGER REFERENCES game(id) ON DELETE CASCADE,
   team1_id INTEGER,
   team2_id INTEGER,
-  team1_set_win_id INTEGER,
+  team1_set_win INTEGER,
   team2_set_win INTEGER,
   team_won INTEGER
 );
 
---changeset vollystat:6
+--changeset vollystat:7
 INSERT INTO players (player_name) VALUES
  ('Poyan'),
  ('Pejman'),
@@ -44,6 +50,7 @@ INSERT INTO players (player_name) VALUES
  ('Hedi'),
  ('Zafari'),
  ('Nima'),
+ ('Nuri'),
  ('Sayed'),
  ('Mahan'),
  ('Shahram');

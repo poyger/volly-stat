@@ -31,7 +31,7 @@ public class MainController {
     @RequestMapping(value = "/submitGameResult", method = RequestMethod.POST)
     @SuppressWarnings("unused")
     public String submitGameResult(@RequestBody GameResult gameResult) {
-        mainRepository.sumbitResult(gameResult);
+        mainRepository.submitResult(gameResult);
         return "redirect:results.html";
     }
 }
