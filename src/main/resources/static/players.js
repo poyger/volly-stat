@@ -29,15 +29,15 @@ var result = {};
 // team1 
 var team1 = {};
 var players1 = [];
+team1.name = "team1";
 team1.players = players1;
 result.team1 = team1;
 // team 2
 var team2 = {};
 var players2 = [];
+team2.name = "team2";
 team2.players = players2;
 result.team2 = team2;
-
-var team2 = [];
 
 $("#players-team1-dropdown").change(
     saveAndShowSelectedTeam("#players-team1-dropdown", players1, "#team1")
@@ -62,14 +62,11 @@ $("#result-team2-dropdown").change(function() {
 
 
 function submitResult() {
-
-    
-}
-
-
-
-
-class GameResult {
-    
-
+  $.ajax({
+    url: '/submitGameResult',
+    type: 'POST',
+    contentType:'application/json',
+    data: JSON.stringify(result),
+    dataType:'json'
+  });
 }
