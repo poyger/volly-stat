@@ -17,20 +17,35 @@ populateDropbox($('#players-team2-dropdown'));
 function saveAndShowSelectedTeam(dropdown, teamArray, displayElement) {
     return function () {
         var val = $(dropdown + " option:selected").text();
-        teamArray.push(val);
-        $(displayElement).html(teamArray.join('</br>'));
+        var player = {};
+        player.name = val;
+        teamArray.push(player);
+        $(displayElement).html(teamArray.map(e => e.name).join('</br>'));
     };
 }
 
-var team1 = new Array();
+var result = {};
+
+// team1 
+var team1 = {};
+var players1 = [];
+team1.players = players1;
+result.team1 = team1;
+// team 2
+var team2 = {};
+var players2 = [];
+team2.players = players2;
+result.team2 = team2;
+
+var team2 = [];
+
 $("#players-team1-dropdown").change(
-    saveAndShowSelectedTeam("#players-team1-dropdown", team1, "#team1")
+    saveAndShowSelectedTeam("#players-team1-dropdown", players1, "#team1")
 );
 
 
-var team2 = new Array();
 $("#players-team2-dropdown").change(
-    saveAndShowSelectedTeam("#players-team2-dropdown", team2, "#team2")
+    saveAndShowSelectedTeam("#players-team2-dropdown", players2, "#team2")
 );
 
 
@@ -44,3 +59,17 @@ var team2Result;
 $("#result-team2-dropdown").change(function() {
     team2Result = $("#result-team2-dropdown option:selected").text()
 });
+
+
+function submitResult() {
+
+    
+}
+
+
+
+
+class GameResult {
+    
+
+}
