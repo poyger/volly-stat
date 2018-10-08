@@ -43,23 +43,17 @@ $("#players-team1-dropdown").change(
     saveAndShowSelectedTeam("#players-team1-dropdown", players1, "#team1")
 );
 
-
 $("#players-team2-dropdown").change(
     saveAndShowSelectedTeam("#players-team2-dropdown", players2, "#team2")
 );
 
-
-var team1Result;
 $("#result-team1-dropdown").change(function() {
-    team1Result = $("#result-team1-dropdown option:selected").text()
+    result.team1SetWin = $("#result-team1-dropdown option:selected").text()
 });
 
-
-var team2Result;
 $("#result-team2-dropdown").change(function() {
-    team2Result = $("#result-team2-dropdown option:selected").text()
+    result.team2SetWin = $("#result-team2-dropdown option:selected").text()
 });
-
 
 function submitResult() {
   $.ajax({
@@ -69,4 +63,17 @@ function submitResult() {
     data: JSON.stringify(result),
     dataType:'json'
   });
+
+
+	$(document).ready(function(){
+		var date_input=$('input[name="date"]'); //our date input has the name "date"
+		var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+		date_input.datepicker({
+			format: 'mm/dd/yyyy',
+			container: container,
+			todayHighlight: true,
+			autoclose: true,
+		})
+	})
+
 }
