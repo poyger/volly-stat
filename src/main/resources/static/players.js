@@ -16,9 +16,9 @@ populateDropbox($('#players-team2-dropdown'));
 
 function saveAndShowSelectedTeam(dropdown, teamArray, displayElement) {
     return function () {
-        var val = $(dropdown + " option:selected").text();
         var player = {};
-        player.name = val;
+        player.id = $(dropdown + " option:selected").val();
+        player.name = $(dropdown + " option:selected").text();
         teamArray.push(player);
         $(displayElement).html(teamArray.map(e => e.name).join('</br>'));
     };
@@ -48,20 +48,8 @@ $("#players-team2-dropdown").change(
     saveAndShowSelectedTeam("#players-team2-dropdown", result.team2.players, "#team2")
 );
 
-$("#result-team1-dropdown").change(function () {
-    result.team1SetWin = $("#result-team1-dropdown option:selected").text()
-});
-
-$("#result-team2-dropdown").change(function () {
-    result.team2SetWin = $("#result-team2-dropdown option:selected").text()
-});
-
-$("#date").change(function () {
-    result.game.date = $("#date").val()
-});
-
 $(document).ready(function () {
-    var date_input = $('input[name="date"]'); //our date input has the name "date"
+    var date_input = $('input[name="date"]');
     var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
     date_input.datepicker({
         format: 'yyyy-mm-dd',
@@ -72,6 +60,9 @@ $(document).ready(function () {
 })
 
 function submitResult() {
+    result.team1SetWin = $("#result-team1-dropdown option:selected").text();
+    result.team2SetWin = $("#result-team2-dropdown option:selected").text();
+    result.game.date = $("#date").val()
     $.ajax({
         url: '/submitGameResult',
         type: 'POST',
