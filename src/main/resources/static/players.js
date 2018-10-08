@@ -24,29 +24,28 @@ function saveAndShowSelectedTeam(dropdown, teamArray, displayElement) {
     };
 }
 
-var result = {};
-var game = {};
-result.game = game;
-
-// team1 
-var team1 = {};
-var players1 = [];
-team1.name = "team1";
-team1.players = players1;
-result.team1 = team1;
-// team 2
-var team2 = {};
-var players2 = [];
-team2.name = "team2";
-team2.players = players2;
-result.team2 = team2;
+var result = {
+    game: {
+        date: ''
+    },
+    team1: {
+        name: 'team1',
+        players: []
+    },
+    team2: {
+        name: 'team2',
+        players: []
+    },
+    team1SetWin: '',
+    team2SetWin: ''
+};
 
 $("#players-team1-dropdown").change(
-    saveAndShowSelectedTeam("#players-team1-dropdown", players1, "#team1")
+    saveAndShowSelectedTeam("#players-team1-dropdown", result.team1.players, "#team1")
 );
 
 $("#players-team2-dropdown").change(
-    saveAndShowSelectedTeam("#players-team2-dropdown", players2, "#team2")
+    saveAndShowSelectedTeam("#players-team2-dropdown", result.team2.players, "#team2")
 );
 
 $("#result-team1-dropdown").change(function () {
@@ -58,7 +57,7 @@ $("#result-team2-dropdown").change(function () {
 });
 
 $("#date").change(function () {
-    game.date = $("#date").val()
+    result.game.date = $("#date").val()
 });
 
 $(document).ready(function () {
