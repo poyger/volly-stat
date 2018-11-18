@@ -5,10 +5,10 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
 
 public class Game {
-    int id;
+    private int id;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    Date date;
+    private Date date;
 
     public int getId() {
         return id;
