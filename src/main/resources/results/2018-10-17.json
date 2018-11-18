@@ -4,7 +4,7 @@
   },
   "team1" : {
     "name" : "team1",
-    "players" : [{"name" : "Nuri"} , {"name" : "Akul"} , {"name" : "Sirus"}, {"name" : "Oskan"}, {"name" : "Pejman"}]
+    "players" : [{"name" : "Nuri"} , {"name" : "Akul"} , {"name" : "Sirus"}, {"name" : "Oskan"}, {"name" : "Peiman"}]
   },
   "team2" : {
     "name" : "team2",

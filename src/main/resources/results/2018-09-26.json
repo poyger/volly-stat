@@ -4,11 +4,11 @@
   },
   "team1" : {
     "name" : "team1",
-    "players" : [{"name" : "Sayed"} , {"name" : "Nuri"} , {"name" : "Peyman"}, {"name" : "Oskan"}]
+    "players" : [{"name" : "Sayed"} , {"name" : "Nuri"} , {"name" : "Peiman"}, {"name" : "Oskan"}]
   },
   "team2" : {
     "name" : "team2",
-    "players" : [{"name" : "Shahram"} , {"name" : "Poyan"} , {"name" : "Hedi"}, {"name" : "Max"}]
+    "players" : [{"name" : "Shahram"} , {"name" : "Poyan"} , {"name" : "Hedi"}, {"name" : "Maks"}]
   },
   "team1SetWin" : "3",
   "team2SetWin" : "1"

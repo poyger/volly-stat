@@ -2,13 +2,13 @@ package com.poyan.volly.stat.vollystat.model;
 
 public class Player {
     private int id;
-    private String name;
+    private PlayerName name;
 
-    public String getName() {
+    public PlayerName getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(PlayerName name) {
         this.name = name;
     }
 

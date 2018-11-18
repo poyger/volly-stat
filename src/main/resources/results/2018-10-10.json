@@ -8,7 +8,7 @@
   },
   "team2" : {
     "name" : "team2",
-    "players" : [{"name" : "Max"} , {"name" : "Nuri"} , {"name" : "Sirus"}, {"name" : "Reza P"}, {"name" : "Ahmad"}]
+    "players" : [{"name" : "Maks"} , {"name" : "Nuri"} , {"name" : "Sirus"}, {"name" : "RezaPanjaki"}, {"name" : "Ahmad"}]
   },
   "team1SetWin" : "3",
   "team2SetWin" : "1"

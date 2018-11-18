@@ -96,7 +96,7 @@ public class MainRepository {
         public Player mapRow(ResultSet resultSet, int i) throws SQLException {
             Player player = new Player();
             player.setId(resultSet.getInt("id"));
-            player.setName(resultSet.getString("player_name"));
+            //player.setName(resultSet.getString("player_name"));
             return player;
         }
     }
