@@ -4,28 +4,28 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.poyan.volly.stat.vollystat.model.GameResult;
 import com.poyan.volly.stat.vollystat.model.Player;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.springframework.util.ResourceUtils.CLASSPATH_URL_PREFIX;
-
 @Controller
 public class MainController {
 
+    private final ResourcePatternResolver resourcePatternResolver;
     private MainRepository mainRepository;
 
     @Autowired
-    public MainController(MainRepository mainRepository) {
+    public MainController(MainRepository mainRepository, ResourcePatternResolver resourcePatternResolver) {
         this.mainRepository = mainRepository;
+        this.resourcePatternResolver = resourcePatternResolver;
     }
 
     @RequestMapping("/getPlayers")
@@ -48,10 +48,9 @@ public class MainController {
     public List<GameResult> getResult() throws IOException {
         List<GameResult> results = new ArrayList<>();
         ObjectMapper mapper = new ObjectMapper();
-        File resultFolder = ResourceUtils.getFile(CLASSPATH_URL_PREFIX + "results");
-        File[] resultFiles = resultFolder.listFiles();
-        for (File resultFile : resultFiles) {
-            GameResult gameResult = mapper.readValue(resultFile, GameResult.class);
+        org.springframework.core.io.Resource[] resources = resourcePatternResolver.getResources("classpath:results/*.json");
+        for (Resource resource : resources) {
+            GameResult gameResult = mapper.readValue(resource.getInputStream(), GameResult.class);
             results.add(gameResult);
         }
         return results;
