@@ -53,7 +53,7 @@ public class MainController {
             GameResult gameResult = mapper.readValue(resource.getInputStream(), GameResult.class);
             results.add(gameResult);
         }
+        results.sort((o1, o2) -> o2.getGame().getDate().compareTo(o1.getGame().getDate()));
         return results;
-
     }
 }
