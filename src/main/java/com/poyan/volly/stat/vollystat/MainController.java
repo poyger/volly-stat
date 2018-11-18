@@ -1,18 +1,26 @@
 package com.poyan.volly.stat.vollystat;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.poyan.volly.stat.vollystat.model.GameResult;
 import com.poyan.volly.stat.vollystat.model.Player;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
+
+import static org.springframework.util.ResourceUtils.CLASSPATH_URL_PREFIX;
 
 @Controller
 public class MainController {
@@ -38,11 +46,19 @@ public class MainController {
         return "redirect:results.html";
     }
 
-    @RequestMapping(value = "/result")
+    @RequestMapping(value = "/getResults")
     @ResponseBody
     @SuppressWarnings("unused")
-    public ModelAndView getResult(ModelMap model) {
-        model.addAttribute("POYAN");
-        return new ModelAndView("forward:/results.html", model);
+    public List<GameResult> getResult() throws IOException {
+        List<GameResult> results = new ArrayList<>();
+        ObjectMapper mapper = new ObjectMapper();
+        File resultFolder = ResourceUtils.getFile(CLASSPATH_URL_PREFIX + "results");
+        File[] resultFiles = resultFolder.listFiles();
+        for (File resultFile : resultFiles) {
+            GameResult gameResult = mapper.readValue(resultFile, GameResult.class);
+            results.add(gameResult);
+        }
+        return results;
+
     }
 }

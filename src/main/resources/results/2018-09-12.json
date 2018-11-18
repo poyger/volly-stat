@@ -1,0 +1,15 @@
+{
+  "game" : {
+    "date" : "2018-09-12"
+  },
+  "team1" : {
+    "name" : "team1",
+    "players" : [{"name" : "Poyan"} , {"name" : "Max"} , {"name" : "Hedi"}, {"name" : "Babak"} , {"name" : "Mohsen"} ]
+  },
+  "team2" : {
+    "name" : "team2",
+    "players" : [{"name" : "Sayed"} , {"name" : "Zafar"} , {"name" : "Sirus"}, {"name" : "Oskan"} , {"name" : "Nuri"}, {"name" : "Peyman"} ]
+  },
+  "team1SetWin" : "2",
+  "team2SetWin" : "3"
+}
