@@ -5,7 +5,13 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
 
 public class Game {
+    private static int counter = 0;
     private int id;
+
+    {
+        id = counter;
+        counter++;
+    }
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date date;

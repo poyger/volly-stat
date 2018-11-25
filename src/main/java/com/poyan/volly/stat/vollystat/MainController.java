@@ -7,10 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -44,16 +41,24 @@ public class MainController {
 
     @RequestMapping(value = "/getResults")
     @ResponseBody
+    @CrossOrigin(origins = "http://localhost:3000")
     @SuppressWarnings("unused")
     public List<GameResult> getResult() throws IOException {
         List<GameResult> results = new ArrayList<>();
         ObjectMapper mapper = new ObjectMapper();
         org.springframework.core.io.Resource[] resources = resourcePatternResolver.getResources("classpath:results/*.json");
+        int id = 0;
         for (Resource resource : resources) {
             GameResult gameResult = mapper.readValue(resource.getInputStream(), GameResult.class);
+            generateId(id, gameResult);
             results.add(gameResult);
+            id++;
         }
         results.sort((o1, o2) -> o2.getGame().getDate().compareTo(o1.getGame().getDate()));
         return results;
+    }
+
+    private void generateId(int id, GameResult gameResult) {
+        gameResult.setId(id);
     }
 }

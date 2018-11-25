@@ -6,6 +6,7 @@ public class GameResult {
     Team team2;
     int team1SetWin;
     int team2SetWin;
+    int id;
 
     public Game getGame() {
         return game;
@@ -45,5 +46,13 @@ public class GameResult {
 
     public void setTeam2SetWin(int team2SetWin) {
         this.team2SetWin = team2SetWin;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
