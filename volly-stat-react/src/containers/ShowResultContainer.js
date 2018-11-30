@@ -13,7 +13,7 @@ class ShowResultContainer extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:8888/getResults")
+    fetch("/getResults")
       .then(res => res.json())
       .then(
         (result) => {
