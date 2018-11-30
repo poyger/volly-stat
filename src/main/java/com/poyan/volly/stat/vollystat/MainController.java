@@ -32,12 +32,7 @@ public class MainController {
         return mainRepository.getAllPlayers();
     }
 
-    @RequestMapping(value = "/submitGameResult", method = RequestMethod.POST)
-    @SuppressWarnings("unused")
-    public String submitGameResult(@RequestBody GameResult gameResult) {
-        mainRepository.submitResult(gameResult);
-        return "redirect:results.html";
-    }
+
 
     @RequestMapping(value = "/getResults")
     @ResponseBody
