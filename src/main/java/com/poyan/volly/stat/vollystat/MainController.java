@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 @Controller
@@ -45,6 +46,8 @@ public class MainController {
         int id = 0;
         for (Resource resource : resources) {
             GameResult gameResult = mapper.readValue(resource.getInputStream(), GameResult.class);
+            gameResult.getTeam1().getPlayers().sort(Comparator.comparing(Player::getName));
+            gameResult.getTeam2().getPlayers().sort(Comparator.comparing(Player::getName));
             generateId(id, gameResult);
             results.add(gameResult);
             id++;
