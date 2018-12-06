@@ -1,0 +1,15 @@
+{
+  "game" : {
+    "date" : "2018-12-05"
+  },
+  "team1" : {
+    "name" : "team1",
+    "players" : [{"name" : "Peiman"} , {"name" : "Poyan"} , {"name" : "Hedi"}, {"name" : "Sirus"}, {"name" : "Shahram"}, {"name" : "Sayed"}, {"name" : "RezaPanjaki"}]
+  },
+  "team2" : {
+    "name" : "team2",
+    "players" : [{"name" : "Mohsen"} , {"name" : "Nuri"} , {"name" : "Maks"}, {"name" : "Oskan"}, {"name" : "Ahmad"}, {"name" : "Akul"}]
+  },
+  "team1SetWin" : "3",
+  "team2SetWin" : "2"
+}
