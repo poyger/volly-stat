@@ -21,7 +21,6 @@ class GameResult extends Component {
     }
 
     handleToggle() {
-        console.info(this.props.isLast);
         this.setState({ collapsed: !this.state.collapsed });
     }
 
