@@ -6,7 +6,7 @@ import {
     CardTitle,
     Collapse
 } from 'reactstrap';
-
+import { Container, Row, Col } from 'reactstrap';
 
 class GameResult extends Component {
 
@@ -33,23 +33,23 @@ class GameResult extends Component {
                     <CardBody onClick={this.handleToggle}>
                         <CardTitle>{game.date}</CardTitle>
                         <Collapse isOpen={this.state.collapsed}>
-                            <CardText>
-                                <div class="row">
-                                    <div class="col-sm">
-                                    {this.props.gameresult.team1SetWin}
-                                    <hr/>
-                                    <ul className="list-unstyled">
-                                        {this.props.gameresult.team1.players.map(player => <li key={player.id}>{player.name}</li>)}
-                                    </ul>
-                                    </div>
-                                    <div class="col-sm">
-                                    {this.props.gameresult.team2SetWin}
-                                    <hr/>
-                                    <ul className="list-unstyled">
-                                        {this.props.gameresult.team2.players.map(player => <li key={player.id}>{player.name}</li>)}
-                                    </ul>
-                                    </div>
-                                </div>
+                            <CardText tag="div">
+                                <Container>
+                                    <Row>
+                                        <Col>
+                                            <ul className="list-unstyled">
+                                                <strong>{this.props.gameresult.team1SetWin}</strong>
+                                                {this.props.gameresult.team1.players.map(player => <li key={player.id}>{player.name}</li>)}
+                                            </ul>
+                                        </Col>
+                                        <Col>
+                                            <ul className="list-unstyled">
+                                                <strong>{this.props.gameresult.team2SetWin}</strong>
+                                                {this.props.gameresult.team2.players.map(player => <li key={player.id}>{player.name}</li>)}
+                                            </ul>
+                                        </Col>
+                                    </Row>
+                                </Container>
                             </CardText>
                         </Collapse>
                     </CardBody>

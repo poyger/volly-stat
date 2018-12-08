@@ -1,12 +1,18 @@
 package com.poyan.volly.stat.vollystat.model;
 
 public class GameResult {
-    Game game;
-    Team team1;
-    Team team2;
-    int team1SetWin;
-    int team2SetWin;
-    int id;
+    private Game game;
+    private Team team1;
+    private Team team2;
+    private int team1SetWin;
+    private int team2SetWin;
+    private int id;
+    private static int counter = 0;
+
+    {
+        setId(counter++);
+    }
+
 
     public Game getGame() {
         return game;

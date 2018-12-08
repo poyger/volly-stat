@@ -43,20 +43,13 @@ public class MainController {
         List<GameResult> results = new ArrayList<>();
         ObjectMapper mapper = new ObjectMapper();
         org.springframework.core.io.Resource[] resources = resourcePatternResolver.getResources("classpath:results/*.json");
-        int id = 0;
         for (Resource resource : resources) {
             GameResult gameResult = mapper.readValue(resource.getInputStream(), GameResult.class);
             gameResult.getTeam1().getPlayers().sort(Comparator.comparing(Player::getName));
             gameResult.getTeam2().getPlayers().sort(Comparator.comparing(Player::getName));
-            generateId(id, gameResult);
             results.add(gameResult);
-            id++;
         }
         results.sort((o1, o2) -> o2.getGame().getDate().compareTo(o1.getGame().getDate()));
         return results;
-    }
-
-    private void generateId(int id, GameResult gameResult) {
-        gameResult.setId(id);
     }
 }
