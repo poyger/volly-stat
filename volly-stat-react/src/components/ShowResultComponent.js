@@ -17,7 +17,7 @@ class ShowResultComponent extends Component {
                         <th>Förlust</th>
                         <th>Set vinster</th>
                         <th>Set förluster</th>
-                        <th>Poäng</th>
+                        <th>Poäng (3P för vinst 1P för set vinst)</th>
                     </tr>
                     </thead>
                     <tbody>
