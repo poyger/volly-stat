@@ -66,6 +66,10 @@ public class PlayerStanding {
         return setLose;
     }
 
+    public int getSetDifference() {
+        return setWin - setLose;
+    }
+
     public int getPoints() {
         return points;
     }

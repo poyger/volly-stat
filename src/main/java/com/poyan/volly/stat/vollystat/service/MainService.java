@@ -4,16 +4,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.poyan.volly.stat.vollystat.model.GameResult;
 import com.poyan.volly.stat.vollystat.model.Player;
 import com.poyan.volly.stat.vollystat.model.PlayerStanding;
+import com.poyan.volly.stat.vollystat.model.Team;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -44,32 +42,33 @@ public class MainService {
         for (GameResult gameResult : result) {
             int team1SetWin = gameResult.getTeam1SetWin();
             int team2SetWin = gameResult.getTeam2SetWin();
-
-            for (Player player : gameResult.getTeam1().getPlayers()) {
-                PlayerStanding playerStanding = standing.computeIfAbsent(player, key -> new PlayerStanding(key));
-                playerStanding.incPlayedGames(1);
-                playerStanding.incSetWin(team1SetWin);
-                playerStanding.incSetLose(team2SetWin);
-                playerStanding.incWin(team1SetWin > team2SetWin ? 1 : 0);
-                playerStanding.incLose(team1SetWin < team2SetWin ? 1 : 0);
-                playerStanding.incPoints(team1SetWin > team2SetWin ? 3 : 0);
-                playerStanding.incPoints(team1SetWin);
-            }
-
-            for (Player player : gameResult.getTeam2().getPlayers()) {
-                PlayerStanding playerStanding = standing.computeIfAbsent(player, key -> new PlayerStanding(key));
-                playerStanding.incPlayedGames(1);
-                playerStanding.incSetWin(team2SetWin);
-                playerStanding.incSetLose(team1SetWin);
-                playerStanding.incLose(team1SetWin > team2SetWin ? 1 : 0);
-                playerStanding.incWin(team1SetWin < team2SetWin ? 1 : 0);
-                playerStanding.incPoints(team2SetWin > team1SetWin ? 3 : 0);
-                playerStanding.incPoints(team2SetWin);
-            }
+            updateStanding(standing, gameResult.getTeam1(), team1SetWin, team2SetWin);
+            updateStanding(standing, gameResult.getTeam2(), team2SetWin, team1SetWin);
         }
+
         return standing.keySet().stream()
                 .map(player -> standing.get(player))
-                .sorted((o1, o2) -> Integer.compare(o2.getPoints(), o1.getPoints()))
+                .sorted((o1, o2) -> {
+                    int pointsCompare = Integer.compare(o2.getPoints(), o1.getPoints());
+                    if (pointsCompare == 0) {
+                        return Integer.compare(o2.getSetDifference(), o1.getSetDifference());
+                    } else {
+                        return pointsCompare;
+                    }
+                })
                 .collect(Collectors.toList());
+    }
+
+    private void updateStanding(Map<Player, PlayerStanding> standing, Team team, int setWin, int setLose) {
+        for (Player player : team.getPlayers()) {
+            PlayerStanding playerStanding = standing.computeIfAbsent(player, key -> new PlayerStanding(key));
+            playerStanding.incPlayedGames(1);
+            playerStanding.incSetWin(setWin);
+            playerStanding.incSetLose(setLose);
+            playerStanding.incWin(setWin > setLose ? 1 : 0);
+            playerStanding.incLose(setLose > setWin ? 1 : 0);
+            playerStanding.incPoints(setWin > setLose ? 3 : 0);
+            playerStanding.incPoints(setWin);
+        }
     }
 }
