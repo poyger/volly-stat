@@ -14,15 +14,15 @@ class GameResult extends Component {
     constructor(props) {
         super(props);
         if (props.isLast) {
-            this.state = { collapsed: true };
+            this.state = { cardOpen: true };
         } else {
-            this.state = { collapsed: false };
+            this.state = { cardOpen: false };
         }
         this.handleToggle = this.handleToggle.bind(this);
     }
 
     handleToggle() {
-        this.setState({ collapsed: !this.state.collapsed });
+        this.setState({ cardOpen: !this.state.cardOpen });
     }
 
     render() {
@@ -31,10 +31,10 @@ class GameResult extends Component {
         return (
             <div>
                 <Card className="mb-2">
-                    {imagePath != null && !this.state.collapsed && <CardImg src={imagePath} alt="No Picture" />}
+                    {imagePath != null && this.state.cardOpen && <CardImg src={imagePath} alt="No Picture" />}
                     <CardBody onClick={this.handleToggle}>
                         <CardTitle>{game.date}</CardTitle>
-                        <Collapse isOpen={this.state.collapsed}>
+                        <Collapse isOpen={this.state.cardOpen}>
                             <CardText tag="div">
                                 <Container>
                                     <Row>
