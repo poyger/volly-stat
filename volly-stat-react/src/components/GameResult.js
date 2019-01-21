@@ -31,7 +31,7 @@ class GameResult extends Component {
         return (
             <div>
                 <Card className="mb-2">
-                    {imagePath != null && <CardImg src={imagePath} alt="No Picture" />}
+                    {imagePath != null && !this.state.collapsed && <CardImg src={imagePath} alt="No Picture" />}
                     <CardBody onClick={this.handleToggle}>
                         <CardTitle>{game.date}</CardTitle>
                         <Collapse isOpen={this.state.collapsed}>
