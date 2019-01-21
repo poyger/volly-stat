@@ -11,5 +11,6 @@
     "players" : [{"name" : "Poyan"} , {"name" : "Nuri"} , {"name" : "Maks"}, {"name" : "Shahram"}, {"name" : "RezaPanjaki"}]
   },
   "team1SetWin" : "1",
-  "team2SetWin" : "3"
+  "team2SetWin" : "3",
+  "imagePath" : "/IMG_7748.jpg"
 }

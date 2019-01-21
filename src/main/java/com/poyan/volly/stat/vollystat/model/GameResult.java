@@ -4,6 +4,7 @@ public class GameResult {
     private Game game;
     private Team team1;
     private Team team2;
+    private String imagePath;
     private int team1SetWin;
     private int team2SetWin;
     private int id;
@@ -60,5 +61,13 @@ public class GameResult {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 }

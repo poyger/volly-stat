@@ -27,11 +27,11 @@ class GameResult extends Component {
 
     render() {
         const game = this.props.gameresult.game;
-        const imageName = "/" + game.date + ".png";
+        let imagePath = this.props.gameresult.imagePath;
         return (
             <div>
                 <Card className="mb-2">
-                    <CardImg src={imageName} alt="No Picture" />
+                    {imagePath != null && <CardImg src={imagePath} alt="No Picture" />}
                     <CardBody onClick={this.handleToggle}>
                         <CardTitle>{game.date}</CardTitle>
                         <Collapse isOpen={this.state.collapsed}>
