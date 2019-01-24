@@ -1,0 +1,16 @@
+{
+  "game" : {
+    "date" : "2019-01-16"
+  },
+  "team1" : {
+    "name" : "team1",
+    "players" : [{"name" : "Peiman"} , {"name" : "Ahmad"} , {"name" : "Hedi"}, {"name" : "Mohsen"}, {"name" : "Sayed"}, {"name" : "Oskan"}]
+  },
+  "team2" : {
+    "name" : "team2",
+    "players" : [{"name" : "Poyan"} , {"name" : "Nuri"} , {"name" : "Maks"}, {"name" : "Shahram"}, {"name" : "RezaPanjaki"}, {"name" : "Sirus"}]
+  },
+  "team1SetWin" : "2",
+  "team2SetWin" : "3",
+  "imagePath" : "/IMG_7777.jpg"
+}
