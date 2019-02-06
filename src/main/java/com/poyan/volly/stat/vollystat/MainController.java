@@ -31,10 +31,10 @@ public class MainController {
     public List<GameResult> getResult() throws IOException {
         List<GameResult> result = mainService.getGameResult();
         List<GameResult> sortedResult = result.stream()
-                .sorted((o1, o2) -> o2.getGame().getDate().compareTo(o1.getGame().getDate()))
-                .peek(gameResult -> gameResult.getTeam1().getPlayers().sort(Comparator.comparing(player -> player.getName())))
-                .peek(gameResult -> gameResult.getTeam2().getPlayers().sort(Comparator.comparing(player -> player.getName())))
-                .collect(Collectors.toList());
+                                              .sorted((o1, o2) -> o2.getGame().getDate().compareTo(o1.getGame().getDate()))
+                                              .peek(gameResult -> gameResult.getTeam1().getPlayers().sort(Comparator.comparing(player -> player.getName())))
+                                              .peek(gameResult -> gameResult.getTeam2().getPlayers().sort(Comparator.comparing(player -> player.getName())))
+                                              .collect(Collectors.toList());
         return sortedResult;
     }
 
@@ -46,4 +46,8 @@ public class MainController {
         return mainService.getStanding();
     }
 
+    @RequestMapping(value = {"/", "/pictures"})
+    public String index() {
+        return "forward:/index.html";
+    }
 }

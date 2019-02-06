@@ -7,7 +7,7 @@ import ShowPictures from './components/ShowPictures'
 
 export default () => (
     <Switch>
-        <Route path="/" component={ShowResultContainer} />
         <Route path="/pictures" component={ShowPictures} />
+        <Route exact={true} path="/" component={ShowResultContainer} />
     </Switch>
 );
