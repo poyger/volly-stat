@@ -1,0 +1,15 @@
+{
+  "game" : {
+    "date" : "2019-02-13"
+  },
+  "team1" : {
+    "name" : "team1",
+    "players" : [{"name" : "Peiman"} , {"name" : "Ahmad"} , {"name" : "Hedi"}, {"name" : "Sirus"}, {"name" : "Nuri"}, {"name" : "Shahram"}]
+  },
+  "team2" : {
+    "name" : "team2",
+    "players" : [{"name" : "Poyan"} , {"name" : "Maks"}, {"name" : "RezaPanjaki"}, {"name" : "Mohsen"}, {"name" : "Oskan"}]
+  },
+  "team1SetWin" : "1",
+  "team2SetWin" : "3"
+}
