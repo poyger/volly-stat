@@ -1,7 +1,6 @@
 package com.poyan.volly.stat.vollystat.model;
 
 public enum PlayerName {
-    //Ahmad,Akul,Hedi,Maks,Mohsen,Nima,Nuri,Peiman,Poyan,RezaPanjaki,Saman,Sayed,Shahram,Sirus,Oskan,Babak,Zafar;
     Ahmad(1),
     Akul(2),
     Hedi(3),
@@ -19,7 +18,8 @@ public enum PlayerName {
     Oskan(15),
     Babak(16),
     Zafar(17),
-    Guest(18);
+    Guest(18),
+    Milad(19);
     private final int id;
     PlayerName(int id) {
         this.id = id;
