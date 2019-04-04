@@ -11,5 +11,5 @@
     "players" : [{"name" : "Emad"} , {"name" : "Maks"}, {"name" : "Peiman"}, {"name" : "Shahram"}, {"name" : "Ahmad"}]
   },
   "team1SetWin" : "2",
-  "team2SetWin" : "2"
+  "team2SetWin" : "3"
 }
