@@ -19,8 +19,11 @@ public enum PlayerName {
     Babak(16),
     Zafar(17),
     Guest(18),
-    Milad(19);
+    Milad(19),
+    Emad(20),
+    Ali(21);
     private final int id;
+
     PlayerName(int id) {
         this.id = id;
     }
