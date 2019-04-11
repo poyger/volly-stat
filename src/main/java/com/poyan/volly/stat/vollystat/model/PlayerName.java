@@ -21,7 +21,10 @@ public enum PlayerName {
     Guest(18),
     Milad(19),
     Emad(20),
-    Ali(21);
+    Ali(21),
+    Arsalan(22),
+    Ardalan(23);
+
     private final int id;
 
     PlayerName(int id) {
