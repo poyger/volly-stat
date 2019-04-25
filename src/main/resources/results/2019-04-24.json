@@ -1,0 +1,15 @@
+{
+  "game" : {
+    "date" : "2019-04-24"
+  },
+  "team1" : {
+    "name" : "team1",
+    "players" : [{"name" : "Ahmad"} , {"name" : "Emad"} , {"name" : "Nuri"}, {"name" : "Shahram"}, {"name" : "Ardalan"}, {"name" : "Oskan"}]
+  },
+  "team2" : {
+    "name" : "team2",
+    "players" : [{"name" : "Mohsen"} , {"name" : "Maks"}, {"name" : "Poyan"}, {"name" : "Arsalan"}, {"name" : "RezaPanjaki"}]
+  },
+  "team1SetWin" : "2",
+  "team2SetWin" : "3"
+}
